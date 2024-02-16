@@ -1,0 +1,42 @@
+Split the values in the images
+-First Relace values with " then [ then ].
+-Now, Y-ou select the split column with delimitors, then add "," and select 
+-you images will be split in different parts
+-change the name of the column, according to the specific picture
+-Remove empty values
+-Done and Apply
+-if you want to create a new table, again click in transform
+
+Formulas
+Step 1
+Calender = CALENDAR(
+    DATE(YEAR(MIN('Data Sales Nike'[Invoice Date])),1,1),
+    DATE(YEAR(MAX('Data Sales Nike'[Invoice Date])),12,31)
+)
+
+Step 2
+Day = FORMAT(Calender[Date],"ddd")
+
+Chatgpt (Generate DAX query of calculate day of number in power query editor
+
+Step 3
+Day_no = Day(Calender[Date])
+
+Step 4
+Month = FORMAT(Calender[Date],"mmm")
+Month_no = Month(Calender[Date])
+
+Step 5
+Year = Year(Calender[Date])
+
+Step 6
+Units = SUM('Data Sales Nike'[Units Sold])
+
+Step 7
+Previous Units   PY_Units = CALCULATE([Units],Calender[Year]=2021)
+Current Units    CY_Units = CALCULATE([Units],Calender[Year]=2022)
+
+Total Profit   Profit = CALCULATE(SUM('Data Sales Nike'[Operating Profit]),Calender[Year]=2020)
+
+
+
