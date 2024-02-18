@@ -1,0 +1,12 @@
+Power Query
+
+1. Delivery Date
+  (Shipment date)-(Order date)
+
+2.Year 
+  date.year(order Date)
+
+Conditional Format
+3. If Returened Column is yes , print 1 else 0
+
+
